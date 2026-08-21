@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Shipping Brain — a synthetic AI-assisted shipping workflow demo.">
+  <meta property="og:title" content="Shipping Brain">
+  <meta property="og:description" content="AI-assisted email intelligence for shipping operations.">
+  <title>Shipping Brain — AI Workflow Demo</title>
+  <style>
+    :root{--ink:#10253f;--muted:#6a7b8f;--line:#dce5ec;--paper:#f4f7f9;--card:#fff;--navy:#0b2742;--cyan:#25b6b1;--cyan-soft:#ddf5f3;--amber:#f0ad4e;--green:#2d9b76;--shadow:0 14px 35px rgba(16,37,63,.09)}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.5 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    button,select{font:inherit}.shell{display:grid;grid-template-columns:240px 1fr;min-height:100vh}.sidebar{background:var(--navy);color:#fff;padding:28px 22px;position:sticky;top:0;height:100vh}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;letter-spacing:.2px}.mark{width:35px;height:35px;border-radius:10px;background:linear-gradient(135deg,var(--cyan),#76e0c7);display:grid;place-items:center;color:var(--navy)}.eyebrow{margin:38px 0 12px;color:#87a1b8;font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.nav button{width:100%;border:0;background:transparent;color:#aebfce;text-align:left;padding:11px 12px;margin:3px 0;border-radius:9px;cursor:pointer}.nav button.active,.nav button:hover{background:rgba(255,255,255,.1);color:#fff}.privacy{position:absolute;bottom:25px;left:22px;right:22px;padding:13px;border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#b8c9d6;font-size:12px}.dot{display:inline-block;width:7px;height:7px;background:#62d3b0;border-radius:50%;margin-right:7px}.main{padding:34px 42px 60px;max-width:1500px;width:100%;margin:0 auto}.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}.top h1{margin:0;font-size:31px;letter-spacing:-.03em}.top p{margin:6px 0 0;color:var(--muted)}.badge{background:var(--cyan-soft);color:#177a77;padding:8px 12px;border-radius:999px;font-weight:700;font-size:12px;white-space:nowrap}.notice{margin:26px 0 18px;background:#edf6fa;border-left:4px solid #58a9c3;padding:13px 16px;border-radius:8px;color:#3d6274}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.metric,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.metric{padding:18px}.metric span{font-size:12px;color:var(--muted);font-weight:700}.metric strong{display:block;font-size:28px;margin-top:6px}.metric small{color:var(--green)}.grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px;margin-top:18px}.card{padding:20px}.card h2{font-size:16px;margin:0 0 5px}.sub{color:var(--muted);font-size:12px;margin-bottom:16px}.table-wrap{overflow:auto}table{width:100%;border-collapse:collapse;font-size:13px}th{text-align:left;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid var(--line);padding:10px 9px}td{padding:12px 9px;border-bottom:1px solid #eef2f5}.pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:11px;font-weight:800}.tonnage{background:#e1effc;color:#2769a5}.cargo{background:#fcebdc;color:#a55a25}.market{background:#ede6fa;color:#6e4e9e}.fixture{background:#e3f4e8;color:#28734b}.confidence{font-weight:800;color:var(--green)}.source{background:#0c2034;color:#d8e8f5;padding:16px;border-radius:10px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;min-height:128px;white-space:pre-wrap}.json{background:#f7f9fb;border:1px solid var(--line);padding:14px;border-radius:10px;font:12px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;min-height:128px;white-space:pre-wrap}.review{margin-top:12px;display:flex;gap:8px}.review button{border:1px solid var(--line);background:#fff;border-radius:8px;padding:8px 11px;cursor:pointer}.review .primary{background:var(--navy);color:#fff;border-color:var(--navy)}.review-state{margin-left:auto;color:var(--muted);align-self:center;font-size:12px}.bar-group{display:grid;gap:13px;margin:18px 0}.bar-row{display:grid;grid-template-columns:105px 1fr 48px;align-items:center;gap:10px;font-size:12px}.bar{height:10px;background:#edf1f4;border-radius:999px;overflow:hidden}.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),#6bd5c7);border-radius:999px}.match-select{padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;margin-bottom:14px}.score{font-weight:900}.score.good{color:var(--green)}.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:9px;margin-top:16px}.step{padding:15px 11px;border-radius:10px;background:#f7f9fb;border:1px solid var(--line);min-height:112px}.step b{display:block;color:var(--cyan);font-size:11px;margin-bottom:5px}.step strong{display:block;font-size:13px}.step span{display:block;color:var(--muted);font-size:11px;margin-top:7px}.hidden{display:none}.footer{margin-top:25px;color:var(--muted);font-size:12px;display:flex;justify-content:space-between}.empty{padding:30px;text-align:center;color:var(--muted)}
+    .sidebar{background:radial-gradient(circle at 20% 0,rgba(37,182,177,.18),transparent 30%),linear-gradient(180deg,#092942 0%,#081d31 100%)}
+    .mark{position:relative;overflow:hidden;background:linear-gradient(145deg,#2cc4bb,#8ae5ce);box-shadow:0 8px 22px rgba(37,182,177,.25)}
+    .mark:before{content:"";position:absolute;width:23px;height:9px;left:6px;top:17px;background:#08243d;clip-path:polygon(0 0,100% 0,78% 100%,18% 100%);border-radius:2px}
+    .mark:after{content:"";position:absolute;width:22px;height:6px;left:7px;top:8px;border-top:2px solid #08243d;border-radius:50%;transform:rotate(-10deg)}
+    .mark i{position:absolute;width:2px;height:11px;left:17px;top:8px;background:#08243d;border-radius:2px}
+    .brand-copy{display:flex;flex-direction:column;line-height:1.08}.brand-copy small{font-size:9px;color:#8eacbe;letter-spacing:.16em;text-transform:uppercase;margin-top:5px}
+    .nav button{transition:.2s ease;border-left:2px solid transparent}.nav button.active{border-left-color:#57d5c2;background:linear-gradient(90deg,rgba(87,213,194,.16),rgba(255,255,255,.04))}
+    .top-actions{display:flex;align-items:center;gap:10px}.language{display:flex;padding:3px;background:#e7edf1;border:1px solid #d4dfe6;border-radius:999px}.language button{border:0;background:transparent;color:#6a7b8f;border-radius:999px;padding:5px 9px;font-size:11px;font-weight:800;cursor:pointer}.language button.active{background:#fff;color:#10253f;box-shadow:0 2px 8px rgba(16,37,63,.12)}
+    .metric{position:relative;overflow:hidden}.metric:before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(#25b6b1,#89dfcc)}.metric strong{letter-spacing:-.035em}.card{box-shadow:0 10px 28px rgba(16,37,63,.065)}.card h2{font-size:17px}.section-kicker{display:inline-flex;align-items:center;gap:7px;color:#238b87;font-size:11px;font-weight:900;letter-spacing:.11em;text-transform:uppercase;margin-bottom:8px}.section-kicker:before{content:"";width:18px;height:2px;background:#25b6b1}.notice{background:linear-gradient(90deg,#e8f5f6,#f2f8fb);border-left-color:#25b6b1}.pill{letter-spacing:.04em}.source{background:linear-gradient(145deg,#0c2338,#102f49)}
+    body.lang-zh{font-family:"PingFang SC","Microsoft YaHei",Inter,ui-sans-serif,sans-serif}.lang-zh .eyebrow,.lang-zh th{text-transform:none;letter-spacing:.04em}
+    @media(max-width:1000px){.shell{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.privacy{display:none}.nav{display:flex;gap:5px;overflow:auto}.nav button{white-space:nowrap}.eyebrow{display:none}.main{padding:24px}.metrics{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.flow{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:620px){.main{padding:20px 14px}.top{display:block}.badge{display:inline-block;margin-top:12px}.metrics{grid-template-columns:1fr 1fr}.metric strong{font-size:22px}.flow{grid-template-columns:1fr 1fr}.footer{display:block}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="mark" aria-hidden="true"><i></i></span><span class="brand-copy">Shipping Brain<small data-i18n="brand_sub">AI operations lab</small></span></div>
+      <div class="eyebrow" data-i18n="prototype_views">Prototype views</div>
+      <nav class="nav">
+        <button class="active" data-view="inbox" data-i18n="nav_inbox">Inbox intelligence</button>
+        <button data-view="radar" data-i18n="nav_radar">Market radar</button>
+        <button data-view="matching" data-i18n="nav_matching">Vessel–cargo matching</button>
+        <button data-view="workflow" data-i18n="nav_workflow">Workflow & controls</button>
+      </nav>
+      <div class="privacy"><span class="dot"></span><span data-i18n="synthetic_only">Synthetic data only</span><br><span data-i18n="no_connection">No mailbox or API connection</span></div>
+    </aside>
+
+    <main class="main">
+      <header class="top">
+        <div><div class="section-kicker" data-i18n="shipping_ops">Shipping operations intelligence</div><h1 id="pageTitle">Inbox intelligence</h1><p data-i18n="page_subtitle">Evidence-preserving extraction with a mandatory operator checkpoint.</p></div>
+        <div class="top-actions"><div class="language" aria-label="Language"><button class="active" data-lang="en">EN</button><button data-lang="zh">中文</button></div><span class="badge" data-i18n="portfolio_safe">Portfolio-safe demo</span></div>
+      </header>
+      <div class="notice" data-i18n="notice">AI proposes a structured record. The operator verifies the source evidence before the record enters a workflow.</div>
+
+      <section id="inbox" class="view">
+        <div class="metrics">
+          <div class="metric"><span data-i18n="messages_reviewed">Messages reviewed</span><strong>4</strong><small data-i18n="synthetic_inbox">synthetic inbox</small></div>
+          <div class="metric"><span data-i18n="ready_review">Ready for review</span><strong>2</strong><small data-i18n="human_action">human action required</small></div>
+          <div class="metric"><span data-i18n="avg_confidence">Average confidence</span><strong>91%</strong><small data-i18n="field_checks">field checks retained</small></div>
+          <div class="metric"><span data-i18n="human_checkpoints">Human checkpoints</span><strong>1</strong><small data-i18n="per_record">per extracted record</small></div>
+        </div>
+        <div class="grid">
+          <div class="card">
+            <h2 data-i18n="review_queue">Review queue</h2><div class="sub" data-i18n="review_queue_sub">Synthetic emails classified by commercial intent</div>
+            <div class="table-wrap"><table><thead><tr><th data-i18n="subject">Subject</th><th data-i18n="class">Class</th><th data-i18n="confidence">Confidence</th><th data-i18n="state">State</th></tr></thead><tbody>
+              <tr><td>OPEN LIST — MV ORION</td><td><span class="pill tonnage">TONNAGE</span></td><td class="confidence">96%</td><td data-i18n="ready_review">Ready for review</td></tr>
+              <tr><td>33K STEEL COILS / SHANGHAI–MOMBASA</td><td><span class="pill cargo">CARGO</span></td><td class="confidence">93%</td><td data-i18n="ready_review">Ready for review</td></tr>
+              <tr><td>WEEKLY DRY BULK MARKET NOTE</td><td><span class="pill market">MARKET</span></td><td class="confidence">89%</td><td data-i18n="archived">Archived</td></tr>
+              <tr><td>RECAP — MV ATLAS</td><td><span class="pill fixture">FIXTURE</span></td><td class="confidence">84%</td><td data-i18n="needs_verification">Needs verification</td></tr>
+            </tbody></table></div>
+          </div>
+          <div class="card">
+            <h2 data-i18n="traceable_extraction">Traceable extraction</h2><div class="sub" data-i18n="traceable_sub">Source and proposed record remain side by side</div>
+            <div class="source">Good day. Please note the following synthetic position:
+MV ORION / 38,200 DWT / OPEN SHANGHAI 02 SEP / 4X30T.
+Kindly advise suitable cargoes.</div>
+            <div style="height:10px"></div>
+            <div class="json">{
+  "vessel_name": "MV ORION",
+  "dwt": 38200,
+  "open_port": "Shanghai",
+  "open_date": "2026-09-02",
+  "review_required": true
+}</div>
+            <div class="review"><button class="primary" id="approve" data-i18n="approve_record">Approve record</button><button id="flag" data-i18n="flag_field">Flag field</button><span class="review-state" id="reviewState" data-i18n="awaiting_review">Awaiting review</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="radar" class="view hidden">
+        <div class="metrics">
+          <div class="metric"><span data-i18n="open_vessels">Open vessels</span><strong>6</strong><small data-i18n="synthetic_positions">synthetic positions</small></div>
+          <div class="metric"><span data-i18n="cargo_orders">Cargo orders</span><strong>4</strong><small data-i18n="synthetic_demand">synthetic demand</small></div>
+          <div class="metric"><span data-i18n="capacity_represented">Capacity represented</span><strong>333k</strong><small>DWT</small></div>
+          <div class="metric"><span data-i18n="regions_covered">Regions covered</span><strong>4</strong><small data-i18n="normalized_labels">normalized labels</small></div>
+        </div>
+        <div class="grid">
+          <div class="card"><h2 data-i18n="capacity_by_region">Available capacity by region</h2><div class="sub" data-i18n="normalized_from_messages">Normalized from position messages</div><div class="bar-group">
+            <div class="bar-row"><span>CJK</span><div class="bar"><i style="width:78%"></i></div><b>119k</b></div>
+            <div class="bar-row"><span>North China</span><div class="bar"><i style="width:42%"></i></div><b>64k</b></div>
+            <div class="bar-row"><span>SE Asia</span><div class="bar"><i style="width:59%"></i></div><b>89k</b></div>
+            <div class="bar-row"><span>West India</span><div class="bar"><i style="width:40%"></i></div><b>60k</b></div>
+          </div></div>
+          <div class="card"><h2 data-i18n="open_tonnage">Open tonnage</h2><div class="sub" data-i18n="fictional_notice">Dates, sizes, and positions are fictional</div><div class="table-wrap"><table><thead><tr><th data-i18n="vessel">Vessel</th><th>DWT</th><th data-i18n="position">Position</th><th data-i18n="date">Date</th></tr></thead><tbody>
+            <tr><td>MV ORION</td><td>38,200</td><td>Shanghai</td><td>02 Sep</td></tr><tr><td>MV AURORA</td><td>56,800</td><td>Singapore</td><td>05 Sep</td></tr><tr><td>MV HORIZON</td><td>63,500</td><td>Qingdao</td><td>06 Sep</td></tr><tr><td>MV LUMEN</td><td>60,400</td><td>Kandla</td><td>12 Sep</td></tr>
+          </tbody></table></div></div>
+        </div>
+      </section>
+
+      <section id="matching" class="view hidden">
+        <div class="card"><h2 data-i18n="matching_shortlist">Explainable matching shortlist</h2><div class="sub" data-i18n="matching_sub">A transparent heuristic supports — but does not replace — an operator decision</div>
+          <label for="cargo"><b data-i18n="cargo_order">Cargo order&nbsp;</b></label><select id="cargo" class="match-select"><option>33K steel coils · Shanghai → Mombasa</option><option>52K fertilizer · Qingdao → Alexandria</option><option>28K bagged rice · Ho Chi Minh → Lagos</option></select>
+          <div class="table-wrap"><table><thead><tr><th data-i18n="vessel">Vessel</th><th data-i18n="fit_score">Fit score</th><th data-i18n="capacity">Capacity</th><th data-i18n="position">Position</th><th data-i18n="timing">Timing</th><th data-i18n="decision">Decision</th></tr></thead><tbody id="matchRows"></tbody></table></div>
+        </div>
+      </section>
+
+      <section id="workflow" class="view hidden">
+        <div class="card"><h2 data-i18n="human_workflow">Human-in-the-loop workflow</h2><div class="sub" data-i18n="workflow_sub">A narrow automation wedge, not a replacement for the transport-management system</div><div class="flow">
+          <div class="step"><b>01</b><strong data-i18n="ingest">Ingest</strong><span data-i18n="ingest_sub">Read an approved inbox</span></div><div class="step"><b>02</b><strong data-i18n="classify">Classify</strong><span data-i18n="classify_sub">Detect commercial intent</span></div><div class="step"><b>03</b><strong data-i18n="extract">Extract</strong><span data-i18n="extract_sub">Map text to typed fields</span></div><div class="step"><b>04</b><strong data-i18n="validate">Validate</strong><span data-i18n="validate_sub">Normalize and flag uncertainty</span></div><div class="step"><b>05</b><strong data-i18n="review">Review</strong><span data-i18n="review_sub">Operator accepts or corrects</span></div><div class="step"><b>06</b><strong data-i18n="use">Use</strong><span data-i18n="use_sub">Export, monitor, or shortlist</span></div>
+        </div></div>
+        <div class="grid"><div class="card"><h2 data-i18n="controls">Controls built into the concept</h2><div class="sub" data-i18n="controls_sub">Designed for evidence and accountability</div><p data-i18n="control_1">✓ Source snippets remain attached to proposed records</p><p data-i18n="control_2">✓ Every extracted record requires human approval</p><p data-i18n="control_3">✓ Credentials and operational data remain outside the public demo</p></div><div class="card"><h2 data-i18n="production_gaps">Production gaps</h2><div class="sub" data-i18n="production_gaps_sub">What would be required before enterprise use</div><p data-i18n="gaps">Role-based access · labeled evaluation set · approved integrations · retention policy · drift monitoring · audit logs</p></div></div>
+      </section>
+
+      <footer class="footer"><span data-i18n="footer_1">Built as a portfolio demonstration of AI product thinking in a real industry workflow.</span><span data-i18n="footer_2">All names, dates, rates, and records are synthetic.</span></footer>
+    </main>
+  </div>
+  <script>
+    const copy={
+      en:{brand_sub:'AI operations lab',prototype_views:'Prototype views',nav_inbox:'Inbox intelligence',nav_radar:'Market radar',nav_matching:'Vessel–cargo matching',nav_workflow:'Workflow & controls',synthetic_only:'Synthetic data only',no_connection:'No mailbox or API connection',shipping_ops:'Shipping operations intelligence',page_subtitle:'Evidence-preserving extraction with a mandatory operator checkpoint.',portfolio_safe:'Portfolio-safe demo',notice:'AI proposes a structured record. The operator verifies the source evidence before the record enters a workflow.',messages_reviewed:'Messages reviewed',synthetic_inbox:'synthetic inbox',ready_review:'Ready for review',human_action:'human action required',avg_confidence:'Average confidence',field_checks:'field checks retained',human_checkpoints:'Human checkpoints',per_record:'per extracted record',review_queue:'Review queue',review_queue_sub:'Synthetic emails classified by commercial intent',subject:'Subject',class:'Class',confidence:'Confidence',state:'State',archived:'Archived',needs_verification:'Needs verification',traceable_extraction:'Traceable extraction',traceable_sub:'Source and proposed record remain side by side',approve_record:'Approve record',flag_field:'Flag field',awaiting_review:'Awaiting review',approved:'Approved by operator',flagged:'Open date flagged',open_vessels:'Open vessels',synthetic_positions:'synthetic positions',cargo_orders:'Cargo orders',synthetic_demand:'synthetic demand',capacity_represented:'Capacity represented',regions_covered:'Regions covered',normalized_labels:'normalized labels',capacity_by_region:'Available capacity by region',normalized_from_messages:'Normalized from position messages',open_tonnage:'Open tonnage',fictional_notice:'Dates, sizes, and positions are fictional',vessel:'Vessel',position:'Position',date:'Date',matching_shortlist:'Explainable matching shortlist',matching_sub:'A transparent heuristic supports — but does not replace — an operator decision',cargo_order:'Cargo order',fit_score:'Fit score',capacity:'Capacity',timing:'Timing',decision:'Decision',human_workflow:'Human-in-the-loop workflow',workflow_sub:'A narrow automation wedge, not a replacement for the transport-management system',ingest:'Ingest',ingest_sub:'Read an approved inbox',classify:'Classify',classify_sub:'Detect commercial intent',extract:'Extract',extract_sub:'Map text to typed fields',validate:'Validate',validate_sub:'Normalize and flag uncertainty',review:'Review',review_sub:'Operator accepts or corrects',use:'Use',use_sub:'Export, monitor, or shortlist',controls:'Controls built into the concept',controls_sub:'Designed for evidence and accountability',control_1:'✓ Source snippets remain attached to proposed records',control_2:'✓ Every extracted record requires human approval',control_3:'✓ Credentials and operational data remain outside the public demo',production_gaps:'Production gaps',production_gaps_sub:'What would be required before enterprise use',gaps:'Role-based access · labeled evaluation set · approved integrations · retention policy · drift monitoring · audit logs',footer_1:'Built as a portfolio demonstration of AI product thinking in a real industry workflow.',footer_2:'All names, dates, rates, and records are synthetic.',review_first:'Review first',alternative:'Alternative',low_priority:'Low priority',position_gap:'Position gap',capacity_gap:'Capacity gap',timing_gap:'Timing gap'},
+      zh:{brand_sub:'航运 AI 实验室',prototype_views:'原型模块',nav_inbox:'邮件智能',nav_radar:'市场雷达',nav_matching:'船货智能匹配',nav_workflow:'流程与控制',synthetic_only:'仅使用合成数据',no_connection:'未连接邮箱或外部 API',shipping_ops:'航运业务智能',page_subtitle:'保留原始证据，并设置强制人工确认节点。',portfolio_safe:'作品集安全版',notice:'AI 负责提出结构化记录，操作人员核对原始证据后，数据才进入后续业务流程。',messages_reviewed:'已分析邮件',synthetic_inbox:'合成邮件箱',ready_review:'待人工确认',human_action:'需要人工处理',avg_confidence:'平均置信度',field_checks:'保留字段校验',human_checkpoints:'人工检查点',per_record:'每条提取记录',review_queue:'审核队列',review_queue_sub:'按商业意图分类的合成航运邮件',subject:'邮件主题',class:'类型',confidence:'置信度',state:'状态',archived:'已归档',needs_verification:'需要核验',traceable_extraction:'可追溯提取',traceable_sub:'原始证据与建议记录并列呈现',approve_record:'确认记录',flag_field:'标记字段',awaiting_review:'等待审核',approved:'操作人员已确认',flagged:'开船日期已标记',open_vessels:'可用船舶',synthetic_positions:'合成船位',cargo_orders:'货盘需求',synthetic_demand:'合成需求',capacity_represented:'运力规模',regions_covered:'覆盖区域',normalized_labels:'标准化标签',capacity_by_region:'各区域可用运力',normalized_from_messages:'由船位邮件标准化生成',open_tonnage:'可用船盘',fictional_notice:'日期、船型及船位均为合成数据',vessel:'船舶',position:'船位',date:'日期',matching_shortlist:'可解释的船货匹配清单',matching_sub:'透明规则辅助操作决策，但不代替最终判断',cargo_order:'货盘',fit_score:'匹配分',capacity:'载重适配',timing:'时间适配',decision:'建议',human_workflow:'人机协同业务流程',workflow_sub:'从高频信息搬运切入，而不是替代现有运输管理系统',ingest:'接入',ingest_sub:'读取授权邮箱',classify:'分类',classify_sub:'识别商业意图',extract:'提取',extract_sub:'文本映射为结构化字段',validate:'校验',validate_sub:'标准化并标记不确定项',review:'复核',review_sub:'操作人员确认或修正',use:'应用',use_sub:'导出、监控或生成清单',controls:'原型内置控制',controls_sub:'兼顾证据链与责任边界',control_1:'✓ 建议记录始终保留原始文本证据',control_2:'✓ 每条提取记录都需要人工确认',control_3:'✓ 凭证和真实业务数据不进入公开版本',production_gaps:'生产化差距',production_gaps_sub:'进入企业场景前仍需补齐',gaps:'角色权限 · 标注评测集 · 合规系统集成 · 数据留存策略 · 模型漂移监控 · 审计日志',footer_1:'用于展示真实产业流程中的 AI 产品思考。',footer_2:'所有名称、日期、价格和业务记录均为合成数据。',review_first:'优先复核',alternative:'备选',low_priority:'低优先级',position_gap:'船位差距',capacity_gap:'载重差距',timing_gap:'时间差距'}
+    };
+    const titleKeys={inbox:'nav_inbox',radar:'nav_radar',matching:'nav_matching',workflow:'nav_workflow'};
+    let currentLang='en',reviewState='awaiting_review';
+    function t(key){return copy[currentLang][key]||key}
+    function setLanguage(lang){currentLang=lang;document.documentElement.lang=lang==='zh'?'zh-CN':'en';document.body.classList.toggle('lang-zh',lang==='zh');document.querySelectorAll('[data-i18n]').forEach(el=>el.textContent=t(el.dataset.i18n));document.querySelectorAll('.language button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));const active=document.querySelector('.nav button.active');document.getElementById('pageTitle').textContent=t(titleKeys[active.dataset.view]);document.getElementById('reviewState').textContent=t(reviewState);renderMatches()}
+    document.querySelectorAll('.language button').forEach(button=>button.addEventListener('click',()=>setLanguage(button.dataset.lang)));
+    document.querySelectorAll('.nav button').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));document.querySelectorAll('.view').forEach(x=>x.classList.add('hidden'));button.classList.add('active');document.getElementById(button.dataset.view).classList.remove('hidden');document.getElementById('pageTitle').textContent=t(titleKeys[button.dataset.view])}));
+    document.getElementById('approve').onclick=()=>{reviewState='approved';document.getElementById('reviewState').textContent=t(reviewState);document.getElementById('reviewState').style.color='#2d9b76'};
+    document.getElementById('flag').onclick=()=>{reviewState='flagged';document.getElementById('reviewState').textContent=t(reviewState);document.getElementById('reviewState').style.color='#b16d10'};
+    const scenarios=[
+      [['MV ORION',96,45,35,16,'review_first'],['MV HORIZON',57,20,12,20,'alternative'],['MV AURORA',44,20,12,12,'low_priority']],
+      [['MV HORIZON',96,45,35,16,'review_first'],['MV AURORA',65,45,12,8,'alternative'],['MV LUMEN',53,45,12,0,'position_gap']],
+      [['MV ATLAS',96,45,35,16,'review_first'],['MV AURORA',52,20,35,0,'capacity_gap'],['MV ORION',48,45,12,0,'timing_gap']]
+    ];
+    function renderMatches(){const rows=scenarios[document.getElementById('cargo').selectedIndex];document.getElementById('matchRows').innerHTML=rows.map((r,i)=>`<tr><td>${r[0]}</td><td class="score ${i===0?'good':''}">${r[1]}/100</td><td>${r[2]}/45</td><td>${r[3]}/35</td><td>${r[4]}/20</td><td>${t(r[5])}</td></tr>`).join('')}
+    document.getElementById('cargo').addEventListener('change',renderMatches);setLanguage('en');
+  </script>
+</body>
+</html>

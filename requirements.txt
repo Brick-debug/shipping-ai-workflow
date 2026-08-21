@@ -1,0 +1,6 @@
+openai>=1.40,<3
+openpyxl>=3.1,<4
+pandas>=2.2,<3
+plotly>=5.22,<7
+python-dotenv>=1.0,<2
+streamlit>=1.36,<2
