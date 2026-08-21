@@ -1,0 +1,15 @@
+.env
+.env.*
+.venv/
+venv/
+__pycache__/
+data/
+processed_uids.txt
+*.xlsx
+*.xls
+*.csv
+*.db
+*.sqlite3
+*.log
+.DS_Store
+.streamlit/secrets.toml
